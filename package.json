@@ -1,0 +1,23 @@
+{
+  "name": "understanding-typescript",
+  "version": "1.0.0",
+  "description": "A repo for Udemy's Understanding Typescript course. This course precedes Angular.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredssbr/understanding-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredssbr/understanding-typescript/issues"
+  },
+  "homepage": "https://github.com/fredssbr/understanding-typescript#readme",
+  "dependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
