@@ -1,4 +1,4 @@
-function Greeter(greeting: string) {
+/* function Greeter(greeting: string) {
     this.greeting = greeting;
 }
 
@@ -14,4 +14,4 @@ button.onclick = function() {
     alert(greeter.greet());
 };
 
-document.body.appendChild(button);
+document.body.appendChild(button); */
