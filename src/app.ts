@@ -1,128 +1,89 @@
-// string
-let myName: string = 'Fred';
-//myName = 12;
+// let & const
+// Creates a block scope. The var is contained inside the scope it's defined in.
+console.log("LET & CONST");
 
-// number
-let myAge: number = 27;
-//myAge = 'Fred'
+let variable = "Test";
+console.log(variable);
+variable = "Another value";
+console.log(variable);
 
-// boolean
-let hasHobbies: boolean = true;
-//hasHobbies = 1;
+// whenever a value is not going to change
+const maxLevels = 100;
+console.log(maxLevels);
+// maxLevels = 99; // won't work
 
-// assign types
-
-// This does not result in error because when we declare a variable
-// without defining a type, the type is ANY (default)
-let myRealAge: number;
-myRealAge = 27;
-//myRealAge = '27';
-
-//array
-let hobbies: any[] = ["Cooking", "Sports"];
-hobbies = [100];
-
-//tuples
-let address: [string, number] = ["Superstreet", 99];
-
-//enum
-// if you don't inform values for the keys, it will assume sequential numbers starting from 0
-enum Color {
-    Gray,
-    Green = 100,
-    Blue
-};
-
-//Color.Blue now has the value of 101 - it continues to increase from the previous key value
-let myColor: Color = Color.Green;
-console.log(myColor);
-
-// any - Careful! It accepts any thing. Try to be specific.
-let car: any = 'BMW';
-console.log(car);
-car = {
-    brand: 'BMW',
-    series: 3
-};
-console.log(car);
-
-// FUNCTION
-// the type of the function always refer to the return type
-function returnMyName(): string {
-    return myName;
+// Block scope
+function reset() {
+    // This would print undefined because variable defined
+    // above is outside the scope of this function
+    // console.log(variable);
+    let variable = null;
+    console.log(variable);
 }
-console.log(returnMyName());
-//void
-function sayHello(): void {
+
+reset();
+console.log(variable);
+
+// Arrow Functions
+console.log("ARROW FUNCTIONS");
+const addNumbers = function(number1: number, number2: number): number {
+    return number1 + number2;
+}
+console.log(addNumbers(10, 3));
+
+// if you have only one line, you do not need this
+/* {
+    return number1 * number2;
+} */
+const multiplyNumbers = (number1: number, number2: number) => number1 * number2;
+console.log(multiplyNumbers(10, 3));
+
+const greet = () => {
     console.log("Hello!");
-}
-//argument types
-function multiply(value1: number, value2: number) {
-    return value1 * value2;
-}
-//console.log(multiply(2, 'Fred')); // shows NaN
-console.log(multiply(10, 2));
-
-//function types
-//The order of arguments is important
-let myMultiply: (val1: number, val2: number) => number;
-/* myMultiply = sayHello;
-myMultiply(); */
-myMultiply = multiply;
-console.log(myMultiply(5, 2));
-
-//objects - it's turned into a type
-//Names of the properties DO matter, order IS NOT important
-let userData: {name: string, age: number} = {
-    name: "Fred",
-    age: 30
 };
+greet();
 
-//Wrong property names
-// userData = {
-//     a: "Hello",
-//     b: 22
-// };
+const greetFriend = (friend: string) => console.log(friend);
+greetFriend("Reindeer");
 
-//complex object
-let complex: {data: number[], output: (all: boolean) => number[]} = {
-    data: [100, 3.99, 10],
-    output: function(all: boolean): number[] {
-        return this.data;
+// Default Parameters
+console.log("DEFAUT PARAMETERS");
+
+// you could use another parameter based on the first, like
+// finish: number = start + 10 
+// order is important!
+const countdown = (start: number = 10): void => {
+    console.log(start);
+    while(start > 0){
+        start--;
     }
+    console.log("Done!", start);
 };
-//complex = {};
+countdown();
 
-//type alias
-type Complex = {data: number[], output: (all: boolean) => number[]};
-let complex2: Complex = {
-    data: [100, 3.99, 10],
-    output: function(all: boolean): number[] {
-        return this.data;
-    }
-};
+// Rest & Spread
+// Allow you to work with arrays
+console.log("REST & SPREAD");
+const numbers = [1, 10, 99, -5];
+console.log(Math.max(33, 99, 10, -3));
 
-//union types
-let myRealRealAge: number | string = 27;
-myRealRealAge = "27";
-//myRealRealAge = true;
+// Spread operator - it passes a list of numbers based on an array
+console.log(Math.max(...numbers));
 
-//check types
-let finalValue: number = 30;
-if(typeof finalValue == "number"){
-    console.log("Final value is a number");
+// Rest operator - if you use it in a function, it gets all
+// the parameters and transform it into an array
+function makeArray(name: string, ...args: number[]) {
+    return args;
 }
+console.log(makeArray("Fred", 1, 2, 6));
 
-//never type
-function neverReturns(): never {
-    throw new Error('An error!');
-}
+// Destructuring
+console.log("DESTRUCTURING");
+const myHobbies = ["Cooking", "Sports"];
+const [hobby1, hobby2] = myHobbies;
+console.log(hobby1, hobby2);
 
-//Nullable Types
-let canBeNull: number | null = 12;
-canBeNull = null;
-//if the var is undefined, it can be null
-let canAlsoBeNull;
-canAlsoBeNull = null;
-let canThisBeAny = null;
-canThisBeAny = 12;
+const userDataDestructuring = {userName: "Fred", age: 30};
+// To assign different names, use :
+const {userName: myNameDestruct, age: myAgeDestruct} = userDataDestructuring;
+console.log(myNameDestruct, myAgeDestruct);
