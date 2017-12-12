@@ -87,3 +87,10 @@ const userDataDestructuring = {userName: "Fred", age: 30};
 // To assign different names, use :
 const {userName: myNameDestruct, age: myAgeDestruct} = userDataDestructuring;
 console.log(myNameDestruct, myAgeDestruct);
+
+// Template literals - use backtips ``
+const userName = "Fred";
+const greeting = ` This is a heading!
+I'm ${userName}.
+This is cool`;
+console.log(greeting);
