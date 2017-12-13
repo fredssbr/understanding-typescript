@@ -1,96 +1,53 @@
-// let & const
-// Creates a block scope. The var is contained inside the scope it's defined in.
-console.log("LET & CONST");
+class Person {
+    // default accessor is public (when you leave it out)
+    name: string;
+    // JavaScript alone doesn't offer private accessor
+    // PRIVATE: only accessible within the object
+    private type: string;
+    // PROTECTED: only accessible within the object and 
+    // the ones that inherit from this class
+    protected age: number = 30;
 
-let variable = "Test";
-console.log(variable);
-variable = "Another value";
-console.log(variable);
-
-// whenever a value is not going to change
-const maxLevels = 100;
-console.log(maxLevels);
-// maxLevels = 99; // won't work
-
-// Block scope
-function reset() {
-    // This would print undefined because variable defined
-    // above is outside the scope of this function
-    // console.log(variable);
-    let variable = null;
-    console.log(variable);
-}
-
-reset();
-console.log(variable);
-
-// Arrow Functions
-console.log("ARROW FUNCTIONS");
-const addNumbers = function(number1: number, number2: number): number {
-    return number1 + number2;
-}
-console.log(addNumbers(10, 3));
-
-// if you have only one line, you do not need this
-/* {
-    return number1 * number2;
-} */
-const multiplyNumbers = (number1: number, number2: number) => number1 * number2;
-console.log(multiplyNumbers(10, 3));
-
-const greet = () => {
-    console.log("Hello!");
-};
-greet();
-
-const greetFriend = (friend: string) => console.log(friend);
-greetFriend("Reindeer");
-
-// Default Parameters
-console.log("DEFAUT PARAMETERS");
-
-// you could use another parameter based on the first, like
-// finish: number = start + 10 
-// order is important!
-const countdown = (start: number = 10): void => {
-    console.log(start);
-    while(start > 0){
-        start--;
+    // Creates a public property username for this class
+    // (shortcut to creating properties)
+    constructor(name: string, public username: string){
+        this.name = name;
     }
-    console.log("Done!", start);
-};
-countdown();
 
-// Rest & Spread
-// Allow you to work with arrays
-console.log("REST & SPREAD");
-const numbers = [1, 10, 99, -5];
-console.log(Math.max(33, 99, 10, -3));
+    // A method is setup like a function without the function keyword
+    // Methods can have accessors as well as properties
+    printAge() {
+        console.log(this.age);
+        this.setType("Cool guy");
+    }
 
-// Spread operator - it passes a list of numbers based on an array
-console.log(Math.max(...numbers));
+    private setType(type: string) {
+        this.type = type;
+        console.log(this.type);
+    }
 
-// Rest operator - if you use it in a function, it gets all
-// the parameters and transform it into an array
-function makeArray(name: string, ...args: number[]) {
-    return args;
 }
-console.log(makeArray("Fred", 1, 2, 6));
+// Instatiate the person (creates an object based on the class
+// Person)
+const person = new Person("Frederico", "fred");
+console.log(person.name, person.username);
+person.printAge();
+// person.setType("Cool guy"); // Won't work with private methods
 
-// Destructuring
-console.log("DESTRUCTURING");
-const myHobbies = ["Cooking", "Sports"];
-const [hobby1, hobby2] = myHobbies;
-console.log(hobby1, hobby2);
+// INHERITANCE
+class Fred extends Person {
+    //name = "Fred";
 
-const userDataDestructuring = {userName: "Fred", age: 30};
-// To assign different names, use :
-const {userName: myNameDestruct, age: myAgeDestruct} = userDataDestructuring;
-console.log(myNameDestruct, myAgeDestruct);
+    constructor(username: string) {
+        // If you define a constructor in the extended class,
+        // you have to call the one from the superclass inside it
+        super("Fred", username);
+    }
+}
 
-// Template literals - use backtips ``
-const userName = "Fred";
-const greeting = ` This is a heading!
-I'm ${userName}.
-This is cool`;
-console.log(greeting);
+const fred = new Fred("max");
+// The name is overwritten with the definition of the class 
+// which extends Person, even if you use a constructor.
+// (It will always overwrite the contents of the superclass)
+console.log(fred);
+
