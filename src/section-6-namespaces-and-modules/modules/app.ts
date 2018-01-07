@@ -17,7 +17,8 @@ import calc from './math/rectangle';
  * If you use an absolute path, it looks for it in the
  * node_modules folder by default.
  */
-
+const diameter: number = 10;
 console.log(Circle.PI);
-console.log(Circle.calculateCircumference(10));
+console.log(Circle.calculateCircumference(diameter));
+console.log(`Area of a circle of diameter ${diameter} is ${Circle.calculateArea(diameter)}`);
 console.log(calc(20, 50));

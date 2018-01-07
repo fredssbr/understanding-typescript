@@ -3,7 +3,6 @@
  * You can define all types of objects (types, functions, consts, lets)
  * inside it. It's compiled like a JS Object with a IIFE
  * 
- * 
  * It's a great tool for small applications, but not very
  * manageable since they are not declarative as to what
  * dependencies they rely on.
