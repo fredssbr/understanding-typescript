@@ -7,3 +7,13 @@ It does not run in the browser. We need to compile it into Javascript before. It
 use during development.
 
 It makes sure we are not introducing bugs because of wrong types.
+
+# Compile your project with typescript
+By running the command tsc --init (after npm i -g typescript), you create a tsconfig.json file so that you have more control over the way you *.ts files are managed.
+
+Have a look at the configuration options at: http://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+# ES6 & TypeScript Compatibility
+Not necessarily all ES6 Features are supported by TypeScript, but quite a lot of them are.
+
+The following Compatibly Chart helps you find out if you're favorite Feature is supported: http://kangax.github.io/compat-table/es6/

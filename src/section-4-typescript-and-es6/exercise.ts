@@ -1,4 +1,4 @@
-/* // Exercise 1 - Maybe use an Arrow Function?
+// Exercise 1 - Maybe use an Arrow Function?
 var double = function(value) {
     return value * 2;
 };
@@ -32,4 +32,4 @@ console.log(result1, result2, result3);
 var scientist = {firstName: "Will", experience: 12};
 var firstName = scientist.firstName;
 var experience = scientist.experience;
-console.log(firstName, experience); */
+console.log(firstName, experience);
