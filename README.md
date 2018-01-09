@@ -27,3 +27,14 @@ The following Compatibly Chart helps you find out if you're favorite Feature is 
 | Can be split up over multiple files | Can be split up over multiple files |
 | No module loader required | Module loader required |
 | Dependencies get difficult to manage in bigger applications | Explicit dependency declaration |
+
+# Decorators
+
+Functions you can attach to classes, methods, properties to transform them.
+It gives a chance to add extra functionality to a class, method, property.
+It's like meta-programming.
+
+It's also interesting to know about adding metadata to your projects. See documentation
+bellow
+
+References: http://www.typescriptlang.org/docs/handbook/decorators.html
