@@ -8,8 +8,13 @@
     <title>Typescript</title>
 </head>
 <body>
+    <div id="app">Change it with JQuery</div>
     <script>
         SystemJS.config({
+            // get your imports and manage the real path
+            map: {
+                'jQuery': '/node_modules/jquery/dist/jquery.min.js'
+            },
             baseURL: '/output',
             packages: {
                 '/': {
@@ -17,7 +22,7 @@
                 }
             }
         });
-        SystemJS.import("section-9-decorators/decorators.js");
+        SystemJS.import("section-10-js-libraries/app.js");
     </script>    
 </body>
 </html>

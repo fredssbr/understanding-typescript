@@ -38,3 +38,31 @@ It's also interesting to know about adding metadata to your projects. See docume
 bellow
 
 References: http://www.typescriptlang.org/docs/handbook/decorators.html
+
+# JS Libraries and Declaration files
+
+In section 10 app.ts, notice that $ still gives an error, the editor does not know what it is. To solve that, TS has definition files.
+In that file, you can map which var is which for typescript
+to know what to do.
+
+http://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
+
+However, that is a cumbersome task. And you can find those
+definitions already written at.
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+Typescript finds your file and knows how jQuery works.
+
+Instead of copying the dts file manually, there's a library
+that manages that for us, typings.
+    
+    sudo npm i typings -g
+    typings install dt~jquery --global --save
+
+Typescript 2.0 forward has a typing manager for that already.
+
+    npm install --save-dev @types/jquery
+
+We still rely on the DefinitelyTyped Github's repository,
+TS will search for the dtd in node_modules.
