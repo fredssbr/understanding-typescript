@@ -42,8 +42,7 @@ References: http://www.typescriptlang.org/docs/handbook/decorators.html
 # JS Libraries and Declaration files
 
 In section 10 app.ts, notice that $ still gives an error, the editor does not know what it is. To solve that, TS has definition files.
-In that file, you can map which var is which for typescript
-to know what to do.
+In that file, you can map which var is which for typescript to know what to do.
 
 http://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
 

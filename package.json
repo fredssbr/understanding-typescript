@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "lite-server",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,9 @@
     "systemjs": "^0.20.19"
   },
   "devDependencies": {
-    "@types/jquery": "^3.2.17"
+    "@types/jquery": "^3.2.17",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^4.0.0-alpha.1",
+    "typescript": "^2.6.2"
   }
 }

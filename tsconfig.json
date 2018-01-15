@@ -54,5 +54,8 @@
   }/* ,
   "exclude": [
     "src/course"
-  ] */
+  ] */,
+  "files": [
+    "src/section-10-js-libraries/app.ts"
+  ]
 }
